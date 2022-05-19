@@ -1,0 +1,56 @@
+package main
+
+import (
+	"fmt"
+	"os"
+)
+
+var yearB int
+var monthB int
+var dateB int
+var fisrtanswer string
+var sexB string
+
+func main() {
+	getnumberforiin()
+	sayIIN(yearB, monthB, dateB, sexB)
+	// message := sayIIN(&yearB, &monthB, &dateB, &sexB)
+	// printMessage(message)
+}
+
+// func printMessage(message string) {
+// 	println(message)
+// }
+
+func getnumberforiin() {
+	fmt.Println("Добрый день! Вас приветствует программа по генерации ИИН")
+	fmt.Println("Если это так напишите Y или N")
+	fmt.Fscan(os.Stdin, &fisrtanswer)
+	if fisrtanswer == "Y" || fisrtanswer == "y" {
+		fmt.Println("Для начала введите год Вашего рождения в формате:95")
+		fmt.Fscan(os.Stdin, &yearB)
+		fmt.Println("Отлично, спасибо! Теперь введите месяц рождения в формате: 03 или 11")
+		fmt.Fscan(os.Stdin, &monthB)
+		fmt.Println("Супер! Последнее, введите дату в формате: 22 или 04")
+		fmt.Fscan(os.Stdin, &dateB)
+	} else {
+		fmt.Println("Спасибо, Ваш ответ принят. \n Хорошего дня!")
+	}
+
+	fmt.Println("Первый этап завершен! Остался 1 вопрос!\n Укажите Ваш пол в формате: M или F")
+	fmt.Fscan(os.Stdin, &sexB)
+	if sexB == "M" {
+		sexB = "300"
+	} else {
+		sexB = "400"
+	}
+	fmt.Printf("Спасибо, процесс завершен! \nВаш ИИН: %d", yearB)
+}
+
+// func sayIIN(yearB *int, monthB *int, dateB *int, sexB *string) {
+// 	fm.Printf("Спасибо, процесс завершен! \nВаш ИИН: %d+%d+%d+%d", &yearB, &monthB, &dateB, &sexB)
+// }
+
+func sayIIN(yearB int, monthB int, dateB int, sexB string) {
+	fmt.Printf("Спасибо, процесс завершен! \nВаш ИИН: %d%d%d%s", yearB, monthB, dateB, sexB)
+}
